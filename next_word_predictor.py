@@ -8,6 +8,7 @@ import re
 import gdown
 import numpy
 import string
+import joblib
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -25,7 +26,7 @@ from keras.utils.data_utils import get_file
 from keras.layers.embeddings import Embedding
 from sklearn.model_selection import train_test_split
 
-"""## **Data preparation - _Generating Corpus_**"""
+# Data preparation - Generating Corpus
 
 '''
 DATASET URL:
@@ -155,4 +156,5 @@ vocabulary = numpy.array(vocabulary)
 numpy.save('./vocabulary.npy', vocabulary)
 model.save('./NWP-USE')
 
-##  
+# Save Model
+joblib.dump(model, '../models/next-word-predictor-model.pkl')
